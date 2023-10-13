@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Pemesanan Barang</title>
+</head>
+<body>
+    <nav style="background-color: rgb(255, 255, 255); outline: 1px solid black;border-radius: 10px; margin-bottom: 10vh;">
+        <ul style="list-style: none;display: flex; justify-content: space-evenly;align-items: center;color: black;">
+            <li style="font-size: 4vh;">Home</li>
+            <li style="font-size: 4vh;">|</li>
+            <li style="font-size: 4vh;">Generate link</li>
+            <li style="font-size: 4vh;">|</li>
+            <li style="font-size: 4vh;">Transaction History</li>
+            <li style="font-size: 4vh;">|</li>
+            <li style="font-size: 4vh;">Policy</li>
+            <li style="font-size: 4vh;">|</li>
+            <li style="font-size: 4vh;">Logout</li>
+        </ul>
+    </nav>
+    <div style="display: flex; flex-direction: row; justify-content: space-around;margin-bottom: 20VH;">
+        <div style="margin-top: 10VH;">
+            <img src="img/iphone.jpg" alt="iphone" style="border: 6px solid black; width: 400px;" >
+            <br>
+            <br>
+            <button type="submit" style="border: none; outline: none;width: 200px; color: black; height: 30px; font-size: 15px; border-radius: 10px; letter-spacing: 1px;cursor: pointer; background-color: rgb(56, 187, 23);">Upload Picture</button>
+        </div>
+        <div style="margin-top: 10VH">
+            <form action="../PRAKTIKUM 3.2/hasilbarang.html" method="get">
+                <table>
+                    <tr>
+                        <td>Title Here: </td>
+                        <td>
+                            <input name="title here" style="width: 80%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Description: </td>
+                        <td>
+                            <textarea name="description" cols="30" rows="5" style="width: 80%;"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Account Number: </td>
+                        <td>
+                            <input type="number" name="account number" style="width: 80%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bank: </td>
+                        <td>
+                            <label id="bank"></label>
+                            <select name="bank" style="width: 60%;">
+                                <option value="">--Please Select--</option>
+                                <option value="bca">BCA</option>
+                                <option value="bri">BRI</option>
+                                <option value="mandiri">MANDIRI</option>
+                                <option value="cimb niaga">CIMB NIAGA</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Account Holder: </td>
+                        <td>
+                            <input name="account holder" style="width: 70%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Transaction: </td>
+                        <td>
+                            <label id="transaction"></label>
+                            <select name="transactions">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <td>* if the transaction is for 3 person, choose 3 from the drop-down list*</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="checkbox" name="mobile phone" value="send to mobile phone"> Send to Mobile Phone
+                            <br>
+                            <input type="checkbox" name="email" value="send to email"> Send to Email
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Send to Mobile Phone: </td>
+                        <td>
+                            <input name=" Send to email" style="width: 70%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Send to Email: </td>
+                        <td>
+                            <input type="email" name=" Send to email" style="width: 70%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <br>
+                            <button type="submit" style="border: none; outline: none;width: 200px; height: 30px; font-size: 15px; border-radius: 10px; letter-spacing: 1px;cursor: pointer; background-color: rgb(56, 187, 23);">Generate Nabr Link</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
