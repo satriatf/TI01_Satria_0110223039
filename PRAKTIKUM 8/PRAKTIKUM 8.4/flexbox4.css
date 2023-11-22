@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+nav {
+    width: 20vw;
+    background-color: pink;
+}
+header, footer {
+    background-color: khaki;
+    height: 12vh;
+    width: 80vw;
+}
+article {
+    background-color: white;
+    flex: 1;
+    height: 60vh;
+}
+aside {
+    background-color: aqua;
+    width: 20vw;
+}
+#nav {
+    display: flex;
+}
+.content {
+    display: flex;
+}
+header, footer, article, nav, aside {
+    padding: 1em;
+}

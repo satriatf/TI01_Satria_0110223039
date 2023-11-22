@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: aquamarine;
+  padding: 15px;
+  align-items: center;
+}
+header ul {
+  display: flex;
+  list-style: none;
+}
+header ul li {
+  margin: 0 15px;
+}
+header ul li a {
+  text-decoration:none;
+}
+body > ul {
+  margin-left: 50px;
+}
+img {
+  width: 75px;
+}
