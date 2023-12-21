@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Picker</title>
+</head>
+<body>
+    <h1>Image Picker</h1>
+    <select name="selectanimal" id="selectanimal">
+        <option value="jerapah.jpg" selected>Jerapah</option>
+    <option value="kucing.jpg">Kucing</option>
+    <option value="orangutan.jpg">Orang Utan</option>
+    <option value="panda.jpg">Panda</option>
+    <option value="rusa.jpg">Rusa</option>
+    </select>
+    <br>
+    <br>
+    <img src="" alt="" id="image">
+    <script>
+        //tangkap elemen yang dibutuhkan
+        const selectanimal = document.getElementById('selectanimal')
+        const image = document.getElementById('image')
+
+        selectanimal.addEventListener('change',chcimg)
+            function chcimg(){
+            image.src = "img/" + selectanimal.value
+            }
+        chcimg()
+    </script>
+</body>
+</html>
