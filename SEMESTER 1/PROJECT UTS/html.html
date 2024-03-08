@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTS form 12</title>
+    <link rel="stylesheet" href="utsform12.css">
+</head>
+<body>
+    <div class="container">
+        <div class="satu">
+            <div>Registrasi Kendaraan Anda</div>
+        </div>  
+        <div class="dua">
+            <form action="#">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="status">Status</label>
+                        </td>
+                        <td>
+                            <input type="radio" name="status" value="status">Mahasiswa
+                            <input type="radio" name="status" value="status">Dosen
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="nim/nidn">NIM/NIDN</label>
+                        </td>
+                        <td>
+                            <input type="text" name="nim/nidn" id="nim/nidn">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="nama">Nama Lengkap :</label>
+                        </td>
+                        <td>
+                            <input type="text" name="nama" id="nama">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="prodi">Prodi :</label>
+                        </td>
+                        <td>
+                            <select name="prodi" id="prodi">
+                                <option value="pilihprodi">Pilih Prodi</option>
+                                <option value="ti">TI</option>
+                                <option value="si">SI</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="kendaraan">Jenis Kendaraan</label>
+                        </td>
+                        <td>
+                            <input type="radio" name="kendaraan" value="motor">Motor
+                            <input type="radio" name="kendaraan" value="mobil">Mobil
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="nopol">NoPol</label>
+                        </td>
+                        <td>
+                            <input type="text" name="nopol" id="nopol">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="merk">Merk</label>
+                        </td>
+                        <td>
+                            <input type="text" name="merk" id="merk">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="stnk">Upload STNK</label>
+                        </td>
+                        <td>
+                            <input type="text" name="stnk" id="stnk">
+                        </td>
+                        <td>
+                            <button type="submit">Browse</button>
+                        </td>
+                    </tr>
+                </table>
+                <div class="button">
+                    <button type="submit">Daftar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
