@@ -27,11 +27,9 @@ $email = $_POST['email'];
 
 $total_poin = 0;
 
-// Memeriksa apakah data dikirim melalui metode POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Memeriksa apakah skill dipilih
     if(isset($_POST['skills']) && is_array($_POST['skills'])) {
-        // Menambahkan nilai skill yang dipilih ke total poin
+
         foreach ($_POST['skills'] as $selected_skill) {
             if(isset($ar_skill[$selected_skill])) {
                 $total_poin += $ar_skill[$selected_skill];

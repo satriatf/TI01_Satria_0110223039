@@ -102,7 +102,7 @@ $ar_domisili = [
                 <option value="Jakarta">Jakarta</option>
                 <option value="Depok">Depok</option>
                 <option value="Bogor">Bogor</option>
-                <option value="Depok">Tangggerang</option>
+                <option value="Depok">Tanggerang</option>
                 <option value="Bogor">Bekasi</option>
             </select>
             </div>
