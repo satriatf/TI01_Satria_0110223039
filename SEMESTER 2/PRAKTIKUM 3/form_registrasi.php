@@ -24,12 +24,12 @@ $ar_domisili = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Form Registrasi</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <fieldset class="container mt-5 p-3" style="background-color: #FEFBF6; border:2px solid black">
+    <fieldset class="container mt-5 p-3" style="background-color: #F5F5DC; border:2px solid black">
         <legend>Form Registrasi IT Club Data Science</legend>
         <form action="hasil_registrasi.php" method="post">
         <div class="form-group row">
@@ -62,11 +62,11 @@ $ar_domisili = [
             <label class="col-4">Jenis Kelamin</label> 
             <div class="col-8">
             <div class="custom-control custom-radio custom-control-inline">
-                <input name="kelamin" id="kelamin_0" type="radio" class="custom-control-input" value="pria"> 
+                <input name="kelamin" id="kelamin_0" type="radio" class="custom-control-input" value="L"> 
                 <label for="kelamin_0" class="custom-control-label">Laki Laki</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-                <input name="kelamin" id="kelamin_1" type="radio" class="custom-control-input" value="wanita"> 
+                <input name="kelamin" id="kelamin_1" type="radio" class="custom-control-input" value="P"> 
                 <label for="kelamin_1" class="custom-control-label">Perempuan</label>
             </div>
             </div>
