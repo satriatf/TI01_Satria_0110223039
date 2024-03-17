@@ -13,8 +13,8 @@ if ($username === 'satria' &&  $password === "123" ) {
     header("Location: login.php");
 };
 
-include_once 'layouts/top.php';
-include_once 'layouts/menu.php';
-include_once 'layouts/bottom.php';
+include_once 'top.php';
+include_once 'menu.php';
+include_once 'bottom.php';
 
-?>  
+?> 
