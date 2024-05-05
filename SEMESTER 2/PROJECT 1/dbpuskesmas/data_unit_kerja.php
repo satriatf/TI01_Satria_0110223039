@@ -2,17 +2,22 @@
 
 require_once 'dbkoneksi.php';
 // show data
-$sql ="SELECT paramedik.*, unit_kerja.nama AS nama_unit_kerja FROM paramedik JOIN unit_kerja ON paramedik.unit_kerja_id = unit_kerja.id_unit_kerja";
-
+$sql = "SELECT * FROM unit_kerja";
 $query = $dbh->query($sql);
 ?>
 
+<?php
+session_start();
+if(!$_SESSION['email']) {
+    header('Location: index.html');
+}
+?>
 <!DOCTYPE html> 
 <html lang="en">
 <head> 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Puskesmas</title>
+	<title>Puskesmas Harapan</title>
 	<!-- Google Font: Source Sans Pro -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
 	<!-- Font Awesome Icons -->
@@ -69,6 +74,13 @@ $query = $dbh->query($sql);
         </a>
       </li>
     </ul>
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+      <li class="nav-item">
+        <a class="nav-link" id="navbar" href="#" role="button" aria-expanded="false"><i class="fas fa-user fa-fw"></i><?php
+          echo $_SESSION['nama'];
+        ?></a>
+      </li>
+    </ul>
   </nav>
   <!-- /.navbar -->
 
@@ -77,21 +89,11 @@ $query = $dbh->query($sql);
     <!-- Brand Logo -->
     <a href="" class="brand-link">
       <img src="img/puskesmas.jpg" alt="puskesmas Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Puskesmas</span>
+      <span class="brand-text font-weight-light">Puskesmas Harapan</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="img/user8-128x128.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Satria Tri Ferdiansyah</a>
-        </div>
-      </div>
-
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
@@ -156,7 +158,7 @@ $query = $dbh->query($sql);
             </a>
           </li>
           <li class="nav-item">
-            <a href="form_paramedik.php" class="nav-link">
+            <a href="form_unit_kerja.php" class="nav-link">
               <i class="nav-icon fas fa-plus"></i>
               <p>
                 Tambah
@@ -177,13 +179,13 @@ $query = $dbh->query($sql);
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Paramedik</h1>
+            <h1>Data Unit Kerja</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Home</a></li>
               <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-              <li class="breadcrumb-item active">Data Paramedik</li>
+              <li class="breadcrumb-item active">Data Unit Kerja</li>
             </ol>
           </div>
         </div>
@@ -197,7 +199,7 @@ $query = $dbh->query($sql);
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Data Paramedik</h3>
+                <h3 class="card-title">Data Unit Kerja</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -205,13 +207,6 @@ $query = $dbh->query($sql);
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>Nama</th>
-                    <th>Jenis Kelamin</th>
-                    <th>Tempat Lahir</th>
-                    <th>Tanggal Lahir</th>
-                    <th>Kategori</th>
-                    <th>No. Telpon</th>
-                    <th>Alamat</th>
                     <th>Unit Kerja</th>
                     <th>Action</th>
                   </tr>
@@ -222,18 +217,11 @@ $query = $dbh->query($sql);
                   foreach($query as $row){
                     ?>
                   <tr>
-                    <td><?=$row["id_paramedik"]?></td>
+                    <td><?=$row["id_unit_kerja"]?></td>
                     <td><?=$row["nama"]?></td>
-                    <td><?=$row["gender"]?></td>
-                    <td><?=$row["tmp_lahir"]?></td>
-                    <td><?=$row["tgl_lahir"]?></td>
-                    <td><?=$row["kategori"]?></td>
-                    <td><?=$row["telpon"]?></td>
-                    <td><?=$row["alamat"]?></td>
-                    <td><?=$row["nama_unit_kerja"]?></td>
                     <td>
-                      <a href="form_paramedik.php?id_paramedik=<?php echo $row['id_paramedik']; ?> "><i class="fas fa-pencil-alt"></i>Update I</a>
-                      <a href="proses.paramedik.php?idx=<?php echo $row['id_paramedik']; ?>&proses=Hapus"><i class="far fa-trash-alt"></i>Delete</a>
+                      <a href="form_unit_kerja.php?id_unit_kerja=<?php echo $row['id_unit_kerja']; ?> "><i class="fas fa-pencil-alt"></i>Update I</a>
+                      <a href="proses_unit_kerja.php?idx=<?php echo $row['id_unit_kerja']; ?>&proses=Hapus"><i class="far fa-trash-alt"></i>Delete</a>
                     </td>
                   </tr>
                   <?php
@@ -251,10 +239,11 @@ $query = $dbh->query($sql);
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
+    <div class="footer-info">
+      <p>
+        &copy; <span>2024</span> Hak Cipta Dilindungi Oleh Puskesmas Harapan
+      </p>
     </div>
-    <strong>Copyright &copy; 2014-2021 <a href="#">Puskesmas</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->

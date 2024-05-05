@@ -34,7 +34,7 @@ if($_idx) {
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a href="index.php" class="navbar-brand p-0">
-        <h1 class="m-0 text-primary"><i class="fa fa-tooth me-2"></i>Puskesmas</h1>
+        <h1 class="m-0 text-primary"><i class="fa fa-tooth me-2"></i>Puskesmas Harapan</h1>
       </a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
@@ -50,31 +50,66 @@ if($_idx) {
       <div class="form-group row">
     <label for="tanggal" class="col-4 col-form-label">Tanggal Periksa :</label> 
     <div class="col-6">
-      <input id="tanggal" name="tanggal" placeholder="Tanggal Periksa" type="date" class="form-control" value="<?= isset($row['tanggal']) ? $row['tanggal'] : '' ?>">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-calendar"></i>
+          </div>
+        </div> 
+          <input id="tanggal" name="tanggal" placeholder="Tanggal Periksa" type="date" class="form-control" value="<?= isset($row['tanggal']) ? $row['tanggal'] : '' ?>">
+      </div>
     </div>
   </div>
   <div class="form-group row">
     <label for="berat" class="col-4 col-form-label">Berat :</label> 
     <div class="col-6">
-      <input id="berat" name="berat" placeholder="Berat Pasien" type="text" class="form-control" value="<?= isset($row['berat']) ? $row['berat'] : '' ?>">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-book"></i>
+          </div>
+        </div> 
+        <input id="berat" name="berat" placeholder="Berat Pasien" type="text" class="form-control" value="<?= isset($row['berat']) ? $row['berat'] : '' ?>">
+      </div>
     </div>
   </div>
   <div class="form-group row">
     <label for="tinggi" class="col-4 col-form-label">Tinggi :</label> 
     <div class="col-6">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-book"></i>
+          </div>
+        </div> 
       <input id="tinggi" name="tinggi" placeholder="Tinggi Pasien" type="text" class="form-control" value="<?= isset($row['tinggi']) ? $row['tinggi'] : '' ?>">
+      </div>
     </div>
   </div>
   <div class="form-group row">
     <label for="tensi" class="col-4 col-form-label">Tensi :</label> 
     <div class="col-6">
-      <input id="tensi" name="tensi" placeholder="Tensi Pasien" type="text" class="form-control" value="<?= isset($row['tensi']) ? $row['tensi'] : '' ?>">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-book"></i>
+          </div>
+        </div> 
+        <input id="tensi" name="tensi" placeholder="Tensi Pasien" type="text" class="form-control" value="<?= isset($row['tensi']) ? $row['tensi'] : '' ?>">
+      </div>
     </div>
   </div>
   <div class="form-group row">
     <label for="keterangan" class="col-4 col-form-label">Keterangan :</label> 
     <div class="col-6">
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-card"></i>
+          </div>
+        </div> 
       <input id="keterangan" name="keterangan" placeholder="Keterangan Periksa" type="text" class="form-control" value="<?= isset($row['keterangan']) ? $row['keterangan'] : '' ?>">
+      </div>
     </div>
   </div>
   <div class="form-group row">

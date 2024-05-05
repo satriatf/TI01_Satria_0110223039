@@ -4,12 +4,12 @@ require_once 'dbkoneksi.php';
 
 $_idx = null;
 
-if(isset($_GET['id_paramedik'])) {
-  $_idx = isset($_GET['id_paramedik']) ? $_GET['id_paramedik'] : '';
+if(isset($_GET['id_pasien'])) {
+  $_idx = isset($_GET['id_pasien']) ? $_GET['id_pasien'] : '';
 }
 
 if($_idx) {
-    $sql = "SELECT * FROM paramedik WHERE id_paramedik=?";
+    $sql = "SELECT * FROM pasien WHERE id_pasien=?";
     $query = $dbh->prepare($sql);
     $query->execute([$_idx]);
     $row = $query->fetch();
@@ -26,7 +26,7 @@ if($_idx) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Paramedik</title>
+    <title>Form Pasien</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -34,7 +34,7 @@ if($_idx) {
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a href="index.php" class="navbar-brand p-0">
-        <h1 class="m-0 text-primary"><i class="fa fa-tooth me-2"></i>Puskesmas</h1>
+        <h1 class="m-0 text-primary"><i class="fa fa-tooth me-2"></i>Puskesmas Harapan</h1>
       </a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
@@ -44,10 +44,23 @@ if($_idx) {
       </div>
     </div>
   </nav>
-  <h3 class="container mt-5" >Form Input Data Paramedik</h3>
+  <h3 class="container mt-5" >Form Input Data Pasien</h3>
     <fieldset class="container mt-5 p-3">
-      <form action="proses.paramedik.php" method="post">
+      <form action="proses_pasien.php" method="post">
       <div class="form-group row">
+    <label for="kode" class="col-4 col-form-label">Kode :</label> 
+    <div class="col-6">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-card"></i>
+          </div>
+        </div> 
+        <input id="kode" name="kode" placeholder="00000" type="text" class="form-control" value="<?= isset($row['kode']) ? $row['kode'] : '' ?>">
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
     <label for="nama" class="col-4 col-form-label">Nama :</label> 
     <div class="col-6">
       <div class="input-group">
@@ -57,19 +70,6 @@ if($_idx) {
           </div>
         </div> 
         <input id="nama" name="nama" placeholder="Nama Lengkap" type="text" class="form-control" value="<?= isset($row['nama']) ? $row['nama'] : '' ?>">
-      </div>
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-4">Jenis Kelamin :</label> 
-    <div class="col-6">
-      <div class="custom-control custom-radio custom-control-inline">
-        <input name="gender" id="gender_0" type="radio" class="custom-control-input" value="L" <?php if(isset($row['gender']) && $row['gender'] == 'L') echo "checked"; ?>>
-        <label for="gender_0" class="custom-control-label">Laki-Laki</label>
-      </div>
-      <div class="custom-control custom-radio custom-control-inline">
-        <input name="gender" id="gender_1" type="radio" class="custom-control-input" value="P" <?php if(isset($row['gender']) && $row['gender'] == 'P') echo "checked"; ?>>
-        <label for="gender_1" class="custom-control-label">Perempuan</label>
       </div>
     </div>
   </div>
@@ -100,23 +100,28 @@ if($_idx) {
     </div>
   </div>
   <div class="form-group row">
-    <label for="kategori" class="col-4 col-form-label">Kategori :</label> 
+    <label class="col-4">Jenis Kelamin :</label> 
     <div class="col-6">
-      <select id="kategori" name="kategori" class="custom-select">
-        <option value="1" selected>Anak</option>
-        <option value="2">Umum</option>
-        <option value="3">Gigi</option>
-        <option value="4">kandungan</option>
-      </select>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input name="gender" id="gender_0" type="radio" class="custom-control-input" value="L" <?php if(isset($row['gender']) && $row['gender'] == 'L') echo "checked"; ?>>
+        <label for="gender_0" class="custom-control-label">Laki-Laki</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input name="gender" id="gender_1" type="radio" class="custom-control-input" value="P" <?php if(isset($row['gender']) && $row['gender'] == 'P') echo "checked"; ?>>
+        <label for="gender_1" class="custom-control-label">Perempuan</label>
+      </div>
     </div>
-  </div> 
+  </div>
   <div class="form-group row">
-    <label for="telpon" class="col-4 col-form-label">Telpon :</label> 
+    <label for="email" class="col-4 col-form-label">Email :</label> 
     <div class="col-6">
       <div class="input-group">
         <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-envelope"></i>
+          </div>
         </div> 
-        <input id="telpon" name="telpon" placeholder="000000000" type="text" class="form-control" value="<?= isset($row['telpon']) ? $row['telpon'] : '' ?>">
+        <input id="email" name="email" placeholder="example@example.com" type="email" class="form-control" value="<?= isset($row['email']) ? $row['email'] : '' ?>">
       </div>
     </div>
   </div>
@@ -127,26 +132,26 @@ if($_idx) {
     </div>
   </div>
   <div class="form-group row">
-    <label for="unit_kerja_id" class="col-4 col-form-label">Unit Kerja :</label> 
+    <label for="kelurahan_id" class="col-4 col-form-label">Kelurahan :</label> 
     <div class="col-6">
-      <select id="unit_kerja_id" name="unit_kerja_id" class="custom-select">
-        <option value="1" selected>Puskesmas Melati</option>
-        <option value="2">Puskesmas Mawar</option>
-        <option value="3">Puskesmas Dahlia</option>
-        <option value="4">Puskesmas Cempaka</option>
-        <option value="5">Puskesmas Sakura</option>
-        <option value="2">Puskesmas Jati</option>
-        <option value="3">Puskesmas Bunga</option>
-        <option value="4">Puskesmas Anggrek</option>
-        <option value="5">Puskesmas Kenanga</option>
-        <option value="5">Puskesmas Flamboyan</option>
+      <select id="kelurahan_id" name="kelurahan_id" class="custom-select">
+        <option value="1" selected>Kemayoran</option>
+        <option value="2">Senen</option>
+        <option value="3">Cikini</option>
+        <option value="4">Cilandak</option>
+        <option value="5">Lebak Bulus</option>
+        <option value="2">Kemang</option>
+        <option value="3">Kebayoran</option>
+        <option value="4">Tanah Abang</option>
+        <option value="5">Palmerah</option>
+        <option value="5">Tanjung Duren</option>
       </select>
     </div>
   </div> 
   <div class="form-group row">
     <div class="offset-4 col-8">
       <input type="submit" class="btn btn-primary" value="<?=$tombol?>" name="proses"/>
-      <input type="submit" class="btn btn-danger" value="Batal" name="proses"/>
+      <input type="button" class="btn btn-danger" value="Batal" name="proses"/>
     </div>
   </div>
   <?php

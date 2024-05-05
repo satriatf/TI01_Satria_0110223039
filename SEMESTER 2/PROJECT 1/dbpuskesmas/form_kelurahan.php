@@ -4,12 +4,12 @@ require_once 'dbkoneksi.php';
 
 $_idx = null;
 
-if(isset($_GET['id_unit_kerja'])) {
-  $_idx = isset($_GET['id_unit_kerja']) ? $_GET['id_unit_kerja'] : '';
+if(isset($_GET['id_kelurahan'])) {
+  $_idx = isset($_GET['id_kelurahan']) ? $_GET['id_kelurahan'] : '';
 }
 
 if($_idx) {
-    $sql = "SELECT * FROM unit_kerja WHERE id_unit_kerja=?";
+    $sql = "SELECT * FROM kelurahan WHERE id_kelurahan=?";
     $query = $dbh->prepare($sql);
     $query->execute([$_idx]);
     $row = $query->fetch();
@@ -26,7 +26,7 @@ if($_idx) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Unit Kerja</title>
+    <title>Form Kelurahan</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -34,7 +34,7 @@ if($_idx) {
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a href="index.php" class="navbar-brand p-0">
-        <h1 class="m-0 text-primary"><i class="fa fa-tooth me-2"></i>Puskesmas</h1>
+        <h1 class="m-0 text-primary"><i class="fa fa-tooth me-2"></i>Puskesmas Harapan</h1>
       </a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
@@ -44,11 +44,11 @@ if($_idx) {
       </div>
     </div>
   </nav>
-  <h3 class="container mt-5" >Form Input Data Unit Kerja</h3>
+  <h3 class="container mt-5" >Form Input Data Kelurahan</h3>
     <fieldset class="container mt-5 p-3">
-      <form action="proses_unit_kerja.php" method="post">
+      <form action="proses_kelurahan.php" method="post">
       <div class="form-group row">
-    <label for="nama" class="col-4 col-form-label">Nama :</label> 
+    <label for="nama" class="col-4 col-form-label">Nama : </label> 
     <div class="col-6">
       <div class="input-group">
         <div class="input-group-prepend">
@@ -56,7 +56,7 @@ if($_idx) {
             <i class="fa fa-address-card"></i>
           </div>
         </div> 
-        <input id="nama" name="nama" placeholder="Nama Unit Kerja" type="text" class="form-control" value="<?= isset($row['nama']) ? $row['nama'] : '' ?>"> 
+        <input id="nama" name="nama" placeholder="Nama Kelurahan" type="text" class="form-control" value="<?= isset($row['nama']) ? $row['nama'] : '' ?>"> 
       </div>
     </div>
   </div> 

@@ -6,12 +6,18 @@ $sql = "SELECT * FROM kelurahan";
 $query = $dbh->query($sql);
 ?>
 
+<?php
+session_start();
+if(!$_SESSION['email']) {
+    header('Location: index.html');
+}
+?>
 <!DOCTYPE html> 
 <html lang="en">
 <head> 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Puskesmas</title>
+	<title>Puskesmas Harapan</title>
 	<!-- Google Font: Source Sans Pro -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
 	<!-- Font Awesome Icons -->
@@ -68,6 +74,13 @@ $query = $dbh->query($sql);
         </a>
       </li>
     </ul>
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+      <li class="nav-item">
+        <a class="nav-link" id="navbar" href="#" role="button" aria-expanded="false"><i class="fas fa-user fa-fw"></i><?php
+          echo $_SESSION['nama'];
+        ?></a>
+      </li>
+    </ul>
   </nav>
   <!-- /.navbar -->
 
@@ -76,21 +89,11 @@ $query = $dbh->query($sql);
     <!-- Brand Logo -->
     <a href="" class="brand-link">
       <img src="img/puskesmas.jpg" alt="puskesmas Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Puskesmas</span>
+      <span class="brand-text font-weight-light">Puskesmas Harapan</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="img/user8-128x128.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Satria Tri Ferdiansyah</a>
-        </div>
-      </div>
-
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
@@ -236,10 +239,11 @@ $query = $dbh->query($sql);
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
+    <div class="footer-info">
+      <p>
+        &copy; <span>2024</span> Hak Cipta Dilindungi Oleh Puskesmas Harapan
+      </p>
     </div>
-    <strong>Copyright &copy; 2014-2021 <a href="#">Puskesmas</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->
